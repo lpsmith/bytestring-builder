@@ -1,0 +1,3 @@
+[submodule "bytestring"]
+	path = bytestring
+	url = https://github.com/haskell/bytestring.git
