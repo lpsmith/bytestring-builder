@@ -1,5 +1,5 @@
 name:                bytestring-builder
-version:             0.10.4.0.2
+version:             0.10.4.1.0
 synopsis:            The new bytestring builder, packaged outside of GHC
 description:
   This is the bytestring builder that is debuting in bytestring-0.10.4.0, which
@@ -50,7 +50,7 @@ source-repository head
 source-repository this
   type:     git
   location: http://github.com/lpsmith/bytestring-builder
-  tag:      v0.10.4.0.2
+  tag:      v0.10.4.1.0
 
 Flag bytestring_has_builder
   default: True

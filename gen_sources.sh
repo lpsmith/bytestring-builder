@@ -5,7 +5,7 @@
 # cbits/fpstring.c still needs some manual work, however.   And this script
 # may need to be tweaked to work against future versions of bytestring.
 
-BYTESTRING_VERSION=bytestring-0.10.4.0
+BYTESTRING_VERSION=bytestring-0.10.4.1
 
 rm -rf $BYTESTRING_VERSION
 
