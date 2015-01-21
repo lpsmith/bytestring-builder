@@ -32,7 +32,7 @@ maintainer:          Leon P Smith <leon@melding-monads.com>
 copyright:           (c) 2010 Jasper Van der Jeugt
                      (c) 2010-2013 Simon Meier
 category:            Data
-build-type:          Custom
+build-type:          Simple
 extra-source-files:
                      cbits/*.c
 
@@ -56,22 +56,24 @@ source-repository this
 
 Flag bytestring_has_itoa_c
   default: True
-  manual: True
 
 Flag bytestring_has_builder
   default: True
-  manual: True
 
 library
   build-depends:     base >= 4.2 && < 5,
                      bytestring >= 0.9 && < 0.10.1 || == 0.10.4.*,
                      deepseq
 
-  if !flag(bytestring_has_itoa_c)
-      c-sources: cbits/itoa.c
+  if flag(bytestring_has_itoa_c)
+      build-depends: bytestring >= 0.10
+  else
+      build-depends: bytestring < 0.10
 
-
-  if !flag(bytestring_has_builder)
+  if flag(bytestring_has_builder)
+      build-depends: bytestring >= 0.10.4
+  else
+      build-depends: bytestring < 0.10.4
       hs-source-dirs: src
       c-sources: cbits/fpstring.c
       exposed-modules:
