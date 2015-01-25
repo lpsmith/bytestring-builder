@@ -136,7 +136,7 @@ instance Monoid ShortByteString where
     mappend = append
     mconcat = concat
 
-instance NFData ShortByteString
+instance NFData ShortByteString where rnf !_ = ()
 
 instance Show ShortByteString where
     showsPrec p ps r = showsPrec p (unpackChars ps) r

@@ -25,6 +25,7 @@ gen_file()
   sed -i 's/_hs_bytestring_long_long_int_dec_padded18/bytestring_bytestring_long_long_int_dec_padded18/g' $1/$2/$3
   sed -i 's/_hs_bytestring_uint_hex/bytestring_bytestring_uint_hex/g' $1/$2/$3
   sed -i 's/_hs_bytestring_long_long_uint_hex/bytestring_bytestring_long_long_uint_hex/g' $1/$2/$3
+  sed -i 's/instance NFData ShortByteString$/instance NFData ShortByteString where rnf !_ = ()/g' $1/$2/$3
 }
 
 gen_file .   cbits itoa.c
