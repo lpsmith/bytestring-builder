@@ -1,4 +1,4 @@
-#!/bin/bash
+g#!/bin/bash
 # copy the source files from a particular version of bytestring,  and
 # generate _most_ of the source files by renaming the c functions.
 
@@ -21,10 +21,10 @@ gen_file()
   sed -i 's/_hs_bytestring_long_long_int_dec/bytestring_builder_long_long_int_dec/g' $1/$2/$3
   sed -i 's/_hs_bytestring_uint_dec/bytestring_builder_uint_dec/g' $1/$2/$3
   sed -i 's/_hs_bytestring_long_long_uint_dec/bytestring_builder_long_long_uint_dec/g' $1/$2/$3
-  sed -i 's/_hs_bytestring_int_dec_padded9/bytestring_bytestring_int_dec_padded9/g' $1/$2/$3
-  sed -i 's/_hs_bytestring_long_long_int_dec_padded18/bytestring_bytestring_long_long_int_dec_padded18/g' $1/$2/$3
-  sed -i 's/_hs_bytestring_uint_hex/bytestring_bytestring_uint_hex/g' $1/$2/$3
-  sed -i 's/_hs_bytestring_long_long_uint_hex/bytestring_bytestring_long_long_uint_hex/g' $1/$2/$3
+  sed -i 's/_hs_bytestring_int_dec_padded9/bytestring_builder_int_dec_padded9/g' $1/$2/$3
+  sed -i 's/_hs_bytestring_long_long_int_dec_padded18/bytestring_builder_long_long_int_dec_padded18/g' $1/$2/$3
+  sed -i 's/_hs_bytestring_uint_hex/bytestring_builder_uint_hex/g' $1/$2/$3
+  sed -i 's/_hs_bytestring_long_long_uint_hex/bytestring_builder_long_long_uint_hex/g' $1/$2/$3
   sed -i 's/instance NFData ShortByteString$/instance NFData ShortByteString where rnf !_ = ()/g' $1/$2/$3
 }
 

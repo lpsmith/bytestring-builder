@@ -186,10 +186,10 @@ wordDec = caseWordSize_32_64
 -- without lead
 ---------------
 
-foreign import ccall unsafe "static bytestring_bytestring_uint_hex" c_uint_hex
+foreign import ccall unsafe "static bytestring_builder_uint_hex" c_uint_hex
     :: CUInt -> Ptr Word8 -> IO (Ptr Word8)
 
-foreign import ccall unsafe "static bytestring_bytestring_long_long_uint_hex" c_long_long_uint_hex
+foreign import ccall unsafe "static bytestring_builder_long_long_uint_hex" c_long_long_uint_hex
     :: CULLong -> Ptr Word8 -> IO (Ptr Word8)
 
 {-# INLINE encodeWordHex #-}

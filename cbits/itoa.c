@@ -179,7 +179,7 @@ void bytestring_builder_long_long_int_dec_padded18 (long long int x, char* buf)
 ///////////////////////
 
 // unsigned ints (32 bit words)
-char* bytestring_bytestring_uint_hex (unsigned int x, char* buf) {
+char* bytestring_builder_uint_hex (unsigned int x, char* buf) {
     // write hex representation in reverse order
     char c, *ptr = buf, *next_free;
     do {
@@ -197,7 +197,7 @@ char* bytestring_bytestring_uint_hex (unsigned int x, char* buf) {
 };
 
 // unsigned long ints (64 bit words)
-char* bytestring_bytestring_long_long_uint_hex (long long unsigned int x, char* buf) {
+char* bytestring_builder_long_long_uint_hex (long long unsigned int x, char* buf) {
     // write hex representation in reverse order
     char c, *ptr = buf, *next_free;
     do {
