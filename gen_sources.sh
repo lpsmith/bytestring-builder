@@ -1,4 +1,4 @@
-g#!/bin/bash
+#!/bin/bash
 # copy the source files from a particular version of bytestring,  and
 # generate _most_ of the source files by renaming the c functions.
 
