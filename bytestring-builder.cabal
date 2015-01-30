@@ -27,10 +27,11 @@ description:
   deprecated in 7.10.
 license:             BSD3
 license-file:        LICENSE
-author:              Simon Meier, Jasper Van der Jeugt
+author:              Simon Meier, Jasper Van der Jeugt, Duncan Coutts
 maintainer:          Leon P Smith <leon@melding-monads.com>
 copyright:           (c) 2010 Jasper Van der Jeugt
                      (c) 2010-2013 Simon Meier
+                     (c) 2012-2013 Duncan Coutts
 category:            Data
 build-type:          Simple
 extra-source-files:
