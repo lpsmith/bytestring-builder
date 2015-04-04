@@ -108,7 +108,7 @@ import Prelude ( Eq(..), Ord(..), Ordering(..), Read(..), Show(..)
 --
 data ShortByteString = SBS ByteArray#
 #if !(MIN_VERSION_base(4,3,0))
-                           Int  -- ^ Prior to ghc-7.0.x, 'ByteArray#'s reported
+           {-# UNPACK #-} !Int  -- ^ Prior to ghc-7.0.x, 'ByteArray#'s reported
                                 -- their length rounded up to the nearest word.
                                 -- This means we have to store the true length
                                 -- separately, wasting a word.
@@ -136,7 +136,8 @@ instance Monoid ShortByteString where
     mappend = append
     mconcat = concat
 
-instance NFData ShortByteString where rnf !_ = ()
+instance NFData ShortByteString where
+    rnf (SBS {}) = ()
 
 instance Show ShortByteString where
     showsPrec p ps r = showsPrec p (unpackChars ps) r
@@ -364,14 +365,16 @@ equateBytes sbs1 sbs2 =
     let !len1 = length sbs1
         !len2 = length sbs2
      in len1 == len2
-     && 0 == inlinePerformIO (memcmp_ByteArray (asBA sbs1) (asBA sbs2) len1)
+     && 0 == inlinePerformIO
+               (memcmp_ByteArray (asBA sbs1) (asBA sbs2) len1)
 
 compareBytes :: ShortByteString -> ShortByteString -> Ordering
 compareBytes sbs1 sbs2 =
     let !len1 = length sbs1
         !len2 = length sbs2
         !len  = min len1 len2
-     in case inlinePerformIO (memcmp_ByteArray (asBA sbs1) (asBA sbs2) len) of
+     in case inlinePerformIO
+               (memcmp_ByteArray (asBA sbs1) (asBA sbs2) len) of
           i | i    < 0    -> LT
             | i    > 0    -> GT
             | len2 > len1 -> LT

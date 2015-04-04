@@ -5,7 +5,7 @@
 # cbits/fpstring.c still needs some manual work, however.   And this script
 # may need to be tweaked to work against future versions of bytestring.
 
-BYTESTRING_VERSION=bytestring-0.10.4.1
+BYTESTRING_VERSION=bytestring-0.10.6.0
 
 rm -rf $BYTESTRING_VERSION
 
@@ -25,7 +25,7 @@ gen_file()
   sed -i 's/_hs_bytestring_long_long_int_dec_padded18/bytestring_builder_long_long_int_dec_padded18/g' $1/$2/$3
   sed -i 's/_hs_bytestring_uint_hex/bytestring_builder_uint_hex/g' $1/$2/$3
   sed -i 's/_hs_bytestring_long_long_uint_hex/bytestring_builder_long_long_uint_hex/g' $1/$2/$3
-  sed -i 's/instance NFData ShortByteString$/instance NFData ShortByteString where rnf !_ = ()/g' $1/$2/$3
+  sed -i 's/accursedUnutterablePerformIO/inlinePerformIO/g' $1/$2/$3
 }
 
 gen_file .   cbits itoa.c
