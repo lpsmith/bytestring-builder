@@ -1,4 +1,8 @@
 {-# LANGUAGE ScopedTypeVariables, CPP, BangPatterns, RankNTypes #-}
+#if __GLASGOW_HASKELL__ == 700
+-- This is needed as a workaround for an old bug in GHC 7.0.1 (Trac #4498)
+{-# LANGUAGE MonoPatBinds #-}
+#endif
 #if __GLASGOW_HASKELL__ >= 703
 {-# LANGUAGE Unsafe #-}
 #endif
@@ -92,7 +96,7 @@ module Data.ByteString.Builder.Internal (
   , lazyByteStringCopy
   , lazyByteStringInsert
   , lazyByteStringThreshold
-  
+
   , shortByteString
 
   , maximalCopySize
@@ -201,8 +205,8 @@ byteStringFromBuffer :: Buffer -> S.ByteString
 byteStringFromBuffer (Buffer fpbuf (BufferRange op _)) =
     S.PS fpbuf 0 (op `minusPtr` unsafeForeignPtrToPtr fpbuf)
 
---- | Prepend the filled part of a 'Buffer' to a lazy 'L.ByteString'
---- trimming it if necessary.
+-- | Prepend the filled part of a 'Buffer' to a lazy 'L.ByteString'
+-- trimming it if necessary.
 {-# INLINE trimmedChunkFromBuffer #-}
 trimmedChunkFromBuffer :: AllocationStrategy -> Buffer
                        -> L.ByteString -> L.ByteString
