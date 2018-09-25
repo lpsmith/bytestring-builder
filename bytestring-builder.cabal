@@ -42,6 +42,8 @@ extra-source-files:
                      src/Data/ByteString/Builder/Prim/*.hs
                      src/Data/ByteString/Builder/Prim/Internal/*.hs
                      src/Data/ByteString/Short/*.hs
+
+                     CHANGELOG.md
 cabal-version:       >=1.8
 
 source-repository head

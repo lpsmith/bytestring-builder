@@ -1,0 +1,2 @@
+## next [????.??.??]
+* Synchronize with `bytestring-0.10.8.2`.
