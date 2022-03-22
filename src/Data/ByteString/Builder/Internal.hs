@@ -446,7 +446,7 @@ flush = builder step
 -- 'zlib' compression library or the conversion from Base64 encoded data to
 -- 8-bit data). For a 'Builder', the only way to handle and report such a
 -- failure is ignore it or call 'error'.  In contrast, 'Put' actions are
--- expressive enough to allow reportng and handling such a failure in a pure
+-- expressive enough to allow reporting and handling such a failure in a pure
 -- fashion.
 --
 -- @'Put' ()@ actions are isomorphic to 'Builder's. The functions 'putBuilder'
@@ -844,7 +844,7 @@ wrappedBytesCopyStep !(BufferRange ip0 ipe) k =
 
 
 -- | Construct a 'Builder' that copies the strict 'S.ByteString's, if it is
--- smaller than the treshold, and inserts it directly otherwise.
+-- smaller than the threshold, and inserts it directly otherwise.
 --
 -- For example, @byteStringThreshold 1024@ copies strict 'S.ByteString's whose size
 -- is less or equal to 1kb, and inserts them directly otherwise. This implies
