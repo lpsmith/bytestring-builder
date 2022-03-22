@@ -541,7 +541,7 @@ primMapLazyByteStringFixed = primMapLazyByteStringBounded . toB
 -- 'L.ByteString' can only be observed through the internal interface.
 -- Morevoer, we expect that all primitives write much fewer than 4kb (the
 -- default short buffer size). Hence, it is safe to ignore the additional
--- memory spilled due to the more agressive buffer wrapping introduced by this
+-- memory spilled due to the more aggressive buffer wrapping introduced by this
 -- optimization.
 --
 {-# INLINE[1] primBounded #-}
